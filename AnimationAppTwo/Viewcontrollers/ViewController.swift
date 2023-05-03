@@ -9,10 +9,6 @@ import UIKit
 import SpringAnimation
 
 class ViewController: UIViewController {
-
-    private var currentAnimation: Animation!
-    private var nextAnimation: Animation!
-    
     @IBOutlet weak var presetValueLabel: UILabel!
     @IBOutlet weak var curveValueLabel: UILabel!
     @IBOutlet weak var forceValueLabel: UILabel!
@@ -21,20 +17,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var springAnimationView: SpringView!
     
+    private var currentAnimation: Animation!
+    private var nextAnimation: Animation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nextAnimation = Animation.getAnimation()
         updateTextLabel(from: nextAnimation)
     }
-    
-    private func updateTextLabel(from animation: Animation) {
-        presetValueLabel.text = animation.preset
-        curveValueLabel.text = animation.curve
-        forceValueLabel.text = String(format: "%.2f", animation.force)
-        durationValueLabel.text = String(format: "%.2f", animation.duration)
-        delayValueLabel.text = String(format: "%.2f", animation.delay)
-    }
-    
+        
     @IBAction func startButtonPressed(_ sender: SpringButton) {
         currentAnimation = nextAnimation
         
@@ -50,6 +41,14 @@ class ViewController: UIViewController {
         
         updateTextLabel(from: currentAnimation)
 
+    }
+    
+    private func updateTextLabel(from animation: Animation) {
+        presetValueLabel.text = animation.preset
+        curveValueLabel.text = animation.curve
+        forceValueLabel.text = String(format: "%.2f", animation.force)
+        durationValueLabel.text = String(format: "%.2f", animation.duration)
+        delayValueLabel.text = String(format: "%.2f", animation.delay)
     }
 }
 
