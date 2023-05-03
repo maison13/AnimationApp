@@ -12,21 +12,28 @@
         <!--View Controller-->
         <scene sceneID="QBn-21-OmG">
             <objects>
-                <viewController id="k95-5m-tUZ" customClass="ViewController" customModule="SpringAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k95-5m-tUZ" customClass="ViewController" customModule="AnimationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKX-G9-hRP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-wZ-hil">
-                                <rect key="frame" x="45" y="708.66666666666663" width="303" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="F5d-Wq-6gm"/>
-                                </constraints>
+                                <rect key="frame" x="73" y="709.33333333333337" width="247" height="34.333333333333371"/>
+                                <color key="backgroundColor" red="0.4411227177" green="0.38877581639999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.87423789399999996" green="0.88047132890000002" blue="0.89917163359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Run"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="k95-5m-tUZ" eventType="touchUpInside" id="kGe-Pf-pPm"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzj-hS-pBy">
-                                <rect key="frame" x="45" y="159" width="303" height="173"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzj-hS-pBy" customClass="SpringView" customModule="SpringAnimation">
+                                <rect key="frame" x="73" y="159" width="247" height="173"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XJU-4M-O9S">
                                         <rect key="frame" x="16" y="18" width="69.666666666666671" height="133.66666666666666"/>
@@ -107,8 +114,8 @@
                                     <constraint firstItem="XJU-4M-O9S" firstAttribute="leading" secondItem="xzj-hS-pBy" secondAttribute="leading" constant="16" id="3Yj-Pk-hrY"/>
                                     <constraint firstItem="e0i-n4-AyI" firstAttribute="height" secondItem="XJU-4M-O9S" secondAttribute="height" id="3x0-pE-U2A"/>
                                     <constraint firstItem="e0i-n4-AyI" firstAttribute="leading" secondItem="XJU-4M-O9S" secondAttribute="trailing" constant="10.333333333333329" id="H7K-YA-Lbx"/>
+                                    <constraint firstAttribute="height" constant="173" id="IUi-qq-uDm"/>
                                     <constraint firstItem="XJU-4M-O9S" firstAttribute="top" secondItem="xzj-hS-pBy" secondAttribute="top" constant="18" id="OYH-Hw-naV"/>
-                                    <constraint firstAttribute="height" constant="173" id="c7Q-Ga-7kI"/>
                                     <constraint firstItem="e0i-n4-AyI" firstAttribute="top" secondItem="xzj-hS-pBy" secondAttribute="top" constant="18" id="t82-Ml-194"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -121,18 +128,27 @@
                         <viewLayoutGuide key="safeArea" id="dYe-8h-mcY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ovd-wZ-hil" firstAttribute="width" secondItem="xzj-hS-pBy" secondAttribute="width" id="HDp-Ci-5qW"/>
-                            <constraint firstItem="xzj-hS-pBy" firstAttribute="leading" secondItem="dYe-8h-mcY" secondAttribute="leading" constant="45" id="NfA-bm-Bs4"/>
-                            <constraint firstItem="Ovd-wZ-hil" firstAttribute="centerX" secondItem="sKX-G9-hRP" secondAttribute="centerX" id="OZI-7A-tRR"/>
-                            <constraint firstItem="dYe-8h-mcY" firstAttribute="trailing" secondItem="xzj-hS-pBy" secondAttribute="trailing" constant="45" id="Rd2-ZR-WxQ"/>
-                            <constraint firstItem="xzj-hS-pBy" firstAttribute="top" secondItem="dYe-8h-mcY" secondAttribute="top" constant="100" id="ctO-EU-ayZ"/>
-                            <constraint firstItem="dYe-8h-mcY" firstAttribute="bottom" secondItem="Ovd-wZ-hil" secondAttribute="bottom" multiplier="1.1" id="ybs-l5-kct"/>
+                            <constraint firstItem="xzj-hS-pBy" firstAttribute="centerX" secondItem="sKX-G9-hRP" secondAttribute="centerX" id="9iM-M9-v7U"/>
+                            <constraint firstItem="xzj-hS-pBy" firstAttribute="leading" secondItem="dYe-8h-mcY" secondAttribute="leading" constant="73" id="Bve-yj-AZb"/>
+                            <constraint firstItem="dYe-8h-mcY" firstAttribute="bottom" secondItem="Ovd-wZ-hil" secondAttribute="bottom" multiplier="1.1" id="GUz-kk-y49"/>
+                            <constraint firstItem="xzj-hS-pBy" firstAttribute="top" secondItem="dYe-8h-mcY" secondAttribute="top" constant="100" id="YHQ-4w-csK"/>
+                            <constraint firstItem="dYe-8h-mcY" firstAttribute="trailing" secondItem="xzj-hS-pBy" secondAttribute="trailing" constant="73" id="hqd-jq-gf2"/>
+                            <constraint firstItem="Ovd-wZ-hil" firstAttribute="centerX" secondItem="sKX-G9-hRP" secondAttribute="centerX" id="pig-fm-cZe"/>
+                            <constraint firstItem="Ovd-wZ-hil" firstAttribute="width" secondItem="xzj-hS-pBy" secondAttribute="width" id="zko-jW-82L"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curveValueLabel" destination="IIx-sg-fnJ" id="e8s-66-YnX"/>
+                        <outlet property="delayValueLabel" destination="PGg-Uc-50V" id="fFT-0p-1GD"/>
+                        <outlet property="durationValueLabel" destination="fKh-Yq-d6r" id="Kzx-IP-LC7"/>
+                        <outlet property="forceValueLabel" destination="T3S-5n-csT" id="b17-gq-1Hh"/>
+                        <outlet property="presetValueLabel" destination="FVv-86-o3L" id="DYK-Ll-xnq"/>
+                        <outlet property="springAnimationView" destination="xzj-hS-pBy" id="A6N-qz-UCX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMN-J2-Sfl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-148"/>
+            <point key="canvasLocation" x="391.60305343511448" y="-148.59154929577466"/>
         </scene>
     </scenes>
     <resources>
